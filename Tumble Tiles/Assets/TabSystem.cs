@@ -13,12 +13,15 @@ public class TabSystem : MonoBehaviour
     public GameObject sizeOfTabGroup;
     private int numOfTabs;
     private GameObject firstTab;
+    private GameObject InputCarat;
     // Start is called before the first frame update
     void Start()
     {
         numOfTabs = TabContainer.transform.childCount - 1;
         firstTab = TabContainer.GetChild(0).gameObject;
         firstTab.transform.Find("Tab").transform.Find("DeleteButton").GetComponent<Toggle>().onValueChanged.AddListener((self) => DeleteTab(firstTab));
+        InputCarat = firstTab.transform.Find("Tab").transform.Find("Label Input Carat").transform.gameObject;
+        InputCarat.transform.SetSiblingIndex(1);
     }
 
     // Update is called once per frame
